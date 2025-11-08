@@ -1,3 +1,7 @@
+git add README.md
+git commit -m "Add Deploy to Vercel button"
+git push origin main
+
 # hot-daily-dashboard
 
 ## 简介（中文）

@@ -1,22 +1,26 @@
 {
   "name": "hot-daily-dashboard",
   "version": "1.0.0",
-  "private": true,
+  "description": "🧠 AI + 科技资讯仪表盘，每日聚合百度热搜、知乎热榜、Hacker News、Product Hunt 热门产品。",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.5.0",
-    "cheerio": "^1.0.0-rc.12",
-    "vue": "^3.3.0"，
+    "axios": "^1.6.7",
+    "express": "^4.18.2",
     "vite": "^5.0.0"
   },
-  "devDependencies": {
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24",
-    "tailwindcss": "^3.5.8"
-   
-  }
+  "devDependencies": {},
+  "keywords": [
+    "dashboard",
+    "news",
+    "tech",
+    "ai",
+    "producthunt",
+    "hot",
+    "trending"
+  ],
+  "license": "MIT"
 }

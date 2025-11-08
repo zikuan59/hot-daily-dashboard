@@ -1,16 +1,19 @@
-const axios = require('axios')
-
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
   try {
-    const { data: ids } = await axios.get('https://hacker-news.firebaseio.com/v0/topstories.json')
-    const top = ids.slice(0, 12)
-    const items = await Promise.all(top.map(async (id) => {
-      const { data } = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
-      return { title: data.title, link: data.url || `https://news.ycombinator.com/item?id=${id}`, source: 'Hacker News' }
-    }))
-    res.json(items)
-  } catch (e) {
-    console.error('hn err', e.message)
-    res.status(500).json({ error: 'Failed to fetch HackerNews' })
+    const topIds = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json').then(r => r.json());
+    const stories = await Promise.all(
+      topIds.slice(0, 10).map(id =>
+        fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(r => r.json())
+      )
+    );
+    res.status(200).json({
+      source: 'hackernews',
+      updated_at: new Date().toISOString(),
+      data: stories
+    });
+  } catch (err) {
+    res.status(500).json({ source: 'hackernews', error: err.message });
   }
 }

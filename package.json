@@ -8,15 +8,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.7.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "vue": "^3.5.0",
+    "axios": "^1.7.2"
   },
   "devDependencies": {
     "vite": "^5.3.0",
-    "@vitejs/plugin-react": "^4.2.0"
+    "@vitejs/plugin-vue": "^5.0.0"
   },
   "keywords": [
+    "vue",
     "dashboard",
     "news",
     "tech",
